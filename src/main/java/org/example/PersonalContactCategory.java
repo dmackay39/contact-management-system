@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.HashMap;
 
-public abstract class PersonalContactCategory implements ContactCategory{
+public class PersonalContactCategory extends GeneralContactCategory implements ContactCategory{
 
     private HashMap<String, Contact> personalContacts = new HashMap<>();
     @Override
@@ -33,5 +33,9 @@ public abstract class PersonalContactCategory implements ContactCategory{
             return personalContacts.get(name);
         }
         else return null;
+    }
+
+    public HashMap<String, Contact> getPersonalContacts() {
+        return personalContacts;
     }
 }
