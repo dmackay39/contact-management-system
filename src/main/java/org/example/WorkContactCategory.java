@@ -12,7 +12,12 @@ public class WorkContactCategory extends GeneralContactCategory implements Conta
 
     @Override
     public void removeContact(String name) {
-        workContacts.remove(name);
+        if (workContacts.containsKey(name)){
+            workContacts.remove(name);
+        }
+        else {
+            System.out.println("Error: Person not found");
+        }
     }
 
     @Override
@@ -32,7 +37,10 @@ public class WorkContactCategory extends GeneralContactCategory implements Conta
         if (workContacts.containsKey(name)){
             return workContacts.get(name);
         }
-        else return (null);
+        else {
+            System.out.println("Not in the list");
+            return (null);
+        }
     }
 
     public HashMap<String, Contact> getWorkContacts() {

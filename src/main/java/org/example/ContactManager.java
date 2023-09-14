@@ -19,6 +19,10 @@ public class ContactManager {
         else if(dirChoice.equalsIgnoreCase("Work")){
             allContacts.get("Work").addContact(name, person);
         }
+        else if (dirChoice.equalsIgnoreCase("Both")) {
+            allContacts.get("Personal").addContact(name, person);
+            allContacts.get("Work").addContact(name, person);
+        }
     }
 
     public void viewContacts(String dirChoice){
@@ -36,6 +40,15 @@ public class ContactManager {
         }
         else if(dirChoice.equalsIgnoreCase("Work")){
             allContacts.get("Work").removeContact(name);
+        }
+    }
+
+    public void searchContacts(String dirChoice, String name){
+        if (dirChoice.equalsIgnoreCase("Personal")){
+            allContacts.get("Personal").searchContacts(name);
+        }
+        else if(dirChoice.equalsIgnoreCase("Work")){
+            allContacts.get("Work").searchContacts(name);
         }
     }
 

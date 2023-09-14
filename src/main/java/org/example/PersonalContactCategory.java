@@ -12,7 +12,12 @@ public class PersonalContactCategory extends GeneralContactCategory implements C
 
     @Override
     public void removeContact(String name) {
-        personalContacts.remove(name);
+        if (personalContacts.containsKey(name)){
+            personalContacts.remove(name);
+        }
+        else{
+            System.out.println("Error: Person not found");
+        }
     }
 
     @Override
@@ -32,7 +37,10 @@ public class PersonalContactCategory extends GeneralContactCategory implements C
         if (personalContacts.containsKey(name)) {
             return personalContacts.get(name);
         }
-        else return null;
+        else {
+            System.out.println("Not in the list");
+            return null;
+        }
     }
 
     public HashMap<String, Contact> getPersonalContacts() {
