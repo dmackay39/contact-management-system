@@ -20,6 +20,7 @@ public class ManualEntryUI {
             switch (choice.toLowerCase()) {
                 case "q": {
                     correct = true;
+                    break;
                 }
 
                 case "+": {
