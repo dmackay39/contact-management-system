@@ -38,6 +38,16 @@ public class ContactManager {
         else if(dirChoice.equalsIgnoreCase("Work")){
             allContacts.get("Work").viewContacts();
         }
+        else if (dirChoice.equalsIgnoreCase("both")){
+            System.out.println("Personal:");
+            allContacts.get("Personal").viewContacts();
+            System.out.println("Work");
+            allContacts.get("Work").viewContacts();
+        }
+        else {
+            System.out.println("Invalid directory choice.");
+            System.out.println("Please choose Personal/Work/Both");
+        }
     }
 
     public void removeContact(String dirChoice, String name){
