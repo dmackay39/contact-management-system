@@ -35,6 +35,14 @@ public class ContactManager {
             System.out.println("Please choose Personal/Work/Both");
         }
 
+        createContactsFile();
+
+        saveContacts();
+
+
+    }
+
+    private void createContactsFile() {
         try {
             File myObj = new File("src/main/resources/SavedContacts.txt");
             if (myObj.createNewFile()) {
@@ -47,10 +55,6 @@ public class ContactManager {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
-        saveContacts();
-
-
     }
 
     private void saveContacts() {
@@ -111,6 +115,8 @@ public class ContactManager {
             System.out.println("Invalid directory choice");
             System.out.println("Please choose work or personal or both");
         }
+        createContactsFile();
+        saveContacts();
     }
 
     public void searchContacts(String dirChoice, String name){

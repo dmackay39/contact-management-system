@@ -57,10 +57,7 @@ public class Main {
         catch (IOException e){
             throw new RuntimeException(e);
         }
-
-
-        Scanner myScanner = new Scanner(System.in);
-        System.out.println("Manual entry");
+        
         ManualEntryUI manEntry = new ManualEntryUI();
         manEntry.runUI(contMan);
 
