@@ -43,7 +43,6 @@ public class ManualEntryUI {
                         contMan.addContact(name, newPerson, dir);
                     }
 
-                    System.out.println("Contact added successfully");
                     break;
 
                 }

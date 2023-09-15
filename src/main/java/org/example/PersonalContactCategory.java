@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class PersonalContactCategory extends GeneralContactCategory implements ContactCategory{
 
@@ -33,17 +35,22 @@ public class PersonalContactCategory extends GeneralContactCategory implements C
     }
 
     @Override
-    public Contact searchContacts(String name) {
-        if (personalContacts.containsKey(name)) {
-            return personalContacts.get(name);
+    public List searchContacts(String name) {
+        List<String> validKeys = new ArrayList<>();
+        for (String s: personalContacts.keySet()) {
+            if (s.toLowerCase().contains(name)){
+                validKeys.add(s);
+            }
         }
-        else {
-            System.out.println("Not in the list");
+        if (validKeys.isEmpty()){
+            System.out.println("Nothing found");
             return null;
         }
+        return validKeys;
     }
 
-    public HashMap<String, Contact> getPersonalContacts() {
+    @Override
+    public HashMap<String, Contact> getContacts() {
         return personalContacts;
     }
 }

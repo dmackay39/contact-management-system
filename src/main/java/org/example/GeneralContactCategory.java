@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class GeneralContactCategory implements ContactCategory {
     @Override
     public void addContact(String name, Contact person) {
@@ -17,7 +20,12 @@ public class GeneralContactCategory implements ContactCategory {
     }
 
     @Override
-    public Contact searchContacts(String name) {
+    public List searchContacts(String name) {
+        return null;
+    }
+
+    @Override
+    public HashMap<String, Contact> getContacts(){
         return null;
     }
 }
