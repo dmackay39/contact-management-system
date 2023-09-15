@@ -66,9 +66,9 @@ public class ContactManager {
         if (dirChoice.equalsIgnoreCase("Personal")){
             List result = allContacts.get("Personal").searchContacts(name);
             if (result.size()!=0) {
+                System.out.println("In Personal directory");
                 for (int i = 0; i < result.size(); i++) {
                     Contact found = allContacts.get("Personal").getContacts().get(result.get(i));
-                    System.out.println("In Personal directory");
                     System.out.println(found.getName() + " " + found.getEmail() + " " + found.getPhoneNumber());
                 }
             }
@@ -79,9 +79,9 @@ public class ContactManager {
         else if(dirChoice.equalsIgnoreCase("Work")){
             List result = allContacts.get("Work").searchContacts(name);
             if (result.size() != 0) {
+                System.out.println("In work directory:");
                 for (int i = 0; i < result.size(); i++) {
                     Contact found = allContacts.get("Work").getContacts().get(result.get(i));
-                    System.out.println("In work directory:");
                     System.out.println(found.getName() + " " + found.getEmail() + " " + found.getPhoneNumber());
                 }
             }
@@ -91,9 +91,9 @@ public class ContactManager {
         } else if (dirChoice.equalsIgnoreCase("Both")) {
             List result = allContacts.get("Work").searchContacts(name);
             if (result.size() != 0) {
+                System.out.println("In work directory:");
                 for (int i = 0; i < result.size(); i++) {
                     Contact found = allContacts.get("Work").getContacts().get(result.get(i));
-                    System.out.println("In work directory:");
                     System.out.println(found.getName() + " " + found.getEmail() + " " + found.getPhoneNumber());
                 }
             }
@@ -103,9 +103,9 @@ public class ContactManager {
 
             List result1 = allContacts.get("Personal").searchContacts(name);
             if (result1.size()!=0) {
+                System.out.println("In Personal directory");
                 for (int i = 0; i < result1.size(); i++) {
                     Contact found = allContacts.get("Personal").getContacts().get(result1.get(i));
-                    System.out.println("In Personal directory");
                     System.out.println(found.getName() + " " + found.getEmail() + " " + found.getPhoneNumber());
                 }
             }

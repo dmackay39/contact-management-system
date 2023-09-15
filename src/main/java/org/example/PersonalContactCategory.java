@@ -44,7 +44,7 @@ public class PersonalContactCategory extends GeneralContactCategory implements C
         }
         if (validKeys.isEmpty()){
             System.out.println("Nothing found");
-            return null;
+            return new ArrayList<String>();
         }
         return validKeys;
     }

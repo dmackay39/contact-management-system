@@ -44,7 +44,7 @@ public class WorkContactCategory extends GeneralContactCategory implements Conta
         }
         if (validKeys.isEmpty()){
             System.out.println("Nothing found");
-            return null;
+            return new ArrayList<String>();
         }
         return validKeys;
     }
