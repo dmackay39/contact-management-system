@@ -24,6 +24,7 @@ public class PersonalContactCategory extends GeneralContactCategory implements C
 
     @Override
     public void viewContacts() {
+        System.out.println("Personal:");
         for (String key : personalContacts.keySet()){
             String name = personalContacts.get(key).getName();
             String email = personalContacts.get(key).getEmail();

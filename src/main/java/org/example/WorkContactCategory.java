@@ -24,6 +24,7 @@ public class WorkContactCategory extends GeneralContactCategory implements Conta
 
     @Override
     public void viewContacts() {
+        System.out.println("Work:");
         for (String key : workContacts.keySet()){
             String name = workContacts.get(key).getName();
             String email = workContacts.get(key).getEmail();
