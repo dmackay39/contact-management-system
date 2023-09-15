@@ -57,7 +57,7 @@ public class Main {
         catch (IOException e){
             throw new RuntimeException(e);
         }
-        
+
         ManualEntryUI manEntry = new ManualEntryUI();
         manEntry.runUI(contMan);
 

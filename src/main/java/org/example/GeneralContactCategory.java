@@ -3,7 +3,7 @@ package org.example;
 import java.util.HashMap;
 import java.util.List;
 
-public class GeneralContactCategory implements ContactCategory {
+public abstract class GeneralContactCategory implements ContactCategory {
     @Override
     public void addContact(String name, Contact person) {
 
