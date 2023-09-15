@@ -1,8 +1,13 @@
 package org.example;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.HashMap;
 import java.util.List;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
+@Slf4j
 public class ContactManager {
     private HashMap<String, GeneralContactCategory> allContacts = new HashMap<>();
 
@@ -14,20 +19,57 @@ public class ContactManager {
     public void addContact(String name, Contact person, String dirChoice){
         if (dirChoice.equalsIgnoreCase("Personal")){
             allContacts.get("Personal").addContact(name, person);
-            System.out.println("Contact added successfully");
+            log.info("Contact added successfully");
         }
         else if(dirChoice.equalsIgnoreCase("Work")){
             allContacts.get("Work").addContact(name, person);
-            System.out.println("Contact added successfully");
+            log.info("Contact added successfully");
         }
         else if (dirChoice.equalsIgnoreCase("Both")) {
             allContacts.get("Personal").addContact(name, person);
             allContacts.get("Work").addContact(name, person);
-            System.out.println("Contact added successfully");
+            log.info("Contact added successfully");
         }
         else {
             System.out.println("Not a valid choice of directory");
             System.out.println("Please choose Personal/Work/Both");
+        }
+
+        try {
+            File myObj = new File("src/main/resources/SavedContacts.txt");
+            if (myObj.createNewFile()) {
+                log.debug("File created: " + myObj.getName());
+            } else {
+                myObj.delete();
+                myObj.createNewFile();
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        saveContacts();
+
+
+    }
+
+    private void saveContacts() {
+        try {
+            FileWriter myWriter = new FileWriter("src/main/resources/SavedContacts.txt");
+            for (String dir : allContacts.keySet()){
+                myWriter.write(dir + ":" + "\n");
+                for (String contact : allContacts.get(dir).getContacts().keySet()){
+                    myWriter.write(allContacts.get(dir).getContacts().get(contact).getName() + ", ");
+                    myWriter.write(allContacts.get(dir).getContacts().get(contact).getEmail() + ", ");
+                    myWriter.write(allContacts.get(dir).getContacts().get(contact).getPhoneNumber() + "\n");
+                }
+            }
+
+            myWriter.close();
+            log.debug("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
     }
 

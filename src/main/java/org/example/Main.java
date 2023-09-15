@@ -1,11 +1,13 @@
 package org.example;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
+@Slf4j
 public class Main {
     public static void main(String[] args) {
         PersonalContactCategory personalCat = new PersonalContactCategory();
@@ -29,7 +31,7 @@ public class Main {
             fis.close();
         }
         catch (FileNotFoundException fileNotFoundException){
-            System.out.println("No such file exists");
+            log.error("No such file exists");
         }
         catch (IOException e){
             throw new RuntimeException(e);
@@ -50,7 +52,7 @@ public class Main {
             fis.close();
         }
         catch (FileNotFoundException fileNotFoundException){
-            System.out.println("No such file exists");
+            log.error("No such file exists");
         }
         catch (IOException e){
             throw new RuntimeException(e);
